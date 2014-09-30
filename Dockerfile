@@ -20,10 +20,7 @@ ADD files/start.sh /tmp/
 
 RUN chmod +x /tmp/start.sh
 
-#create user
-#RUN useradd -U -c znc -d /home/znc znc
 RUN mkdir /usr/share/znc
-#RUN chown znc:znc /home/znc -R
 
 ##################### INSTALLATION END #####################
 
