@@ -12,7 +12,7 @@ MAINTAINER bateau
 # Update the repository sources list
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
-RUN apt-get install wget git gettext build-essential automake libssl-dev perl -yq
+RUN apt-get install wget git gettext openssl build-essential automake libssl-dev perl -yq
 ################## BEGIN INSTALLATION ######################
 
 # Add files
