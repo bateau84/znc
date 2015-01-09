@@ -1,5 +1,5 @@
 ############################################################
-# Dockerfile to build OpenTTD container images
+# Dockerfile to build ZNC IRC bouncer container images
 # Based on Ubuntu
 ############################################################
 
