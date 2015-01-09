@@ -2,11 +2,11 @@
 
 mkdir /tmp/znc
 cd /tmp/znc
-wget -q http://znc.in/releases/znc-latest.tar.gz
+/usr/bin/wget -q http://znc.in/releases/znc-latest.tar.gz
 
-tar -zxf znc-latest.tar.gz
+/bin/tar -zxf znc-latest.tar.gz
 cd znc-*
 
 ./configure --with-openssl && make -s && make -s install
 
-znc --datadir=/usr/share/znc -f -r
+/usr/local/bin/znc --datadir=/usr/share/znc -f -r
