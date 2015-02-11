@@ -14,12 +14,12 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get install wget git gettext openssl build-essential automake libssl-dev perl -yq
 ################## BEGIN INSTALLATION ######################
+ADD files/ /tmp
+WORKDIR /tmp
+
+RUN /tmp/install.sh
 
 # Add files
-ADD files/start.sh /tmp/
-
-RUN chmod +x /tmp/start.sh
-
 RUN mkdir /usr/share/znc
 
 ##################### INSTALLATION END #####################
