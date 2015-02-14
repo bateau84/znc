@@ -2,7 +2,7 @@ Docker image for ZNC irc bouncer.
 
 ##Install
 
-    docker pull bateau/znc
+    docker pull bateau/znc:1.6.0
 
 ##Usage
 
