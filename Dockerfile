@@ -7,22 +7,24 @@
 FROM ubuntu:14.04
 
 # File Author / Maintainer
-MAINTAINER bateau
+MAINTAINER Mats Bergmann <bateau@sea-shell.org>
 
 # Update the repository sources list
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update
-RUN apt-get install wget git gettext openssl build-essential automake libssl-dev perl -yq
-################## BEGIN INSTALLATION ######################
-ADD files/ /tmp
+RUN apt-get update -y -qq && apt-get install wget git gettext openssl build-essential automake libssl-dev perl -yq
+
+ADD files/install.sh /tmp/
+ADD files/cleanup.sh /tmp/
+ADD files/start.sh /usr/bin/
 WORKDIR /tmp
 
-RUN /tmp/install.sh
+RUN /tmp/install.sh && /tmp/cleanup.sh
 
 # Add files
 RUN mkdir /usr/share/znc
 
-##################### INSTALLATION END #####################
+EXPOSE 30200/tcp
 
-# Set default container command
-CMD ["/bin/sh", "/tmp/start.sh"]
+ENTRYPOINT ["/bin/sh"]
+
+CMD ["/usr/bin/start.sh"]
